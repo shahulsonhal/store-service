@@ -13,7 +13,7 @@ const (
 	useInMemory                = "USE_IN_MEMORY"
 	defaultInMemory            = true
 	weatherBaseURLENV          = "WEATHER_URL"
-	defaultWeatherBaseURLValue = "localhost:3000"
+	defaultWeatherBaseURLValue = "http://localhost:3000"
 )
 
 func mustReadPort() string {

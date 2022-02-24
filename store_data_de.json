@@ -3,24 +3,21 @@
     	"store_id": "germany-berlin-xberg",
     	"name": "Germany - Kreuzberg",
     	"country": "Germany",
-    	"country_code": "FR",
-    	"location": {"lat": 12.34, "lng": 56.78},
-    	"slow_service": true
+    	"country_code": "DE",
+    	"location": {"lat": 12.34, "lng": 56.78}
     },
     {
     	"store_id": "germany-berlin-pberg",
     	"name": "Germany - Berlin - Prenzlauer Berg",
     	"country": "Germany",
-    	"country_code": "FR",
-    	"location": {"lat": 22.33, "lng": 71.44},
-    	"slow_service": false
+    	"country_code": "DE",
+    	"location": {"lat": 22.33, "lng": 71.44}
     },
     {
     	"store_id": "germany-leipzig-west",
     	"name": "Germany - Berlin - Leipzig West",
     	"country": "Germany",
-    	"country_code": "FR",
-    	"location": {"lat": 11.34, "lng": 10.12},
-    	"slow_service": false
+    	"country_code": "DE",
+    	"location": {"lat": 11.34, "lng": 10.12}
     }
 ]

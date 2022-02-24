@@ -2,6 +2,7 @@ package data
 
 import (
 	"fmt"
+	"strings"
 	"sync"
 )
 
@@ -21,7 +22,7 @@ type St struct {
 
 const (
 	countryGermany         = "DE"
-	countryFrance          = "france"
+	countryFrance          = "FR"
 	precipitationLevelHigh = "HIGH"
 )
 
@@ -34,15 +35,12 @@ func (f *St) GetStore(max int, country string) ([]StoreDetails, error) {
 
 	store := val.([]StoreDetails)
 
-	if max == 0 {
-		return store, nil
-	}
-
-	if max > len(store) {
+	if max > len(store) || max == 0 {
 		max = len(store)
 	}
 
-	store = store[len(store)-max:]
+	store = store[0:max]
+
 	if err := checkServiceType(store); err != nil {
 		return nil, err
 	}
@@ -52,7 +50,7 @@ func (f *St) GetStore(max int, country string) ([]StoreDetails, error) {
 
 func checkServiceType(store []StoreDetails) error {
 	for i, item := range store {
-		switch item.Country {
+		switch item.CountryCode {
 		case countryGermany:
 			weather, err := getAccuweather(countryGermany, item.Location.Lat, item.Location.Lng)
 			if err != nil {
@@ -61,7 +59,7 @@ func checkServiceType(store []StoreDetails) error {
 
 			store[i].SlowService = weather.PrecipitationLevel == precipitationLevelHigh
 		case countryFrance:
-			weather, err := getAerisweather(countryFrance, item.Location.Lat, item.Location.Lng)
+			weather, err := getAerisweather(strings.ToLower(item.Country), item.Location.Lat, item.Location.Lng)
 			if err != nil {
 				return err
 			}

@@ -10,7 +10,7 @@ import (
 	"github.com/shahulsonhal/store-service/internal/data"
 )
 
-// initStoreRouter sets up location-history router.
+// initStoreRouter sets up store-location router.
 func (s *Server) initStoreRouter() chi.Router {
 	r := chi.NewRouter()
 	r.Get("/", s.handleGetStoreV1)
@@ -48,7 +48,7 @@ func (s *Server) handleGetStoreV1(w http.ResponseWriter, r *http.Request) {
 	}
 	if err != nil {
 		log.Println(err)
-		fail(w, http.StatusInternalServerError, "")
+		fail(w, http.StatusInternalServerError, http.StatusText(http.StatusInternalServerError))
 		return
 	}
 

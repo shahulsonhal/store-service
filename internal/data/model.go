@@ -11,7 +11,7 @@ type StoreDetails struct {
 	Country     string       `json:"country,omitempty"`
 	CountryCode string       `json:"country_code,omitempty"`
 	Location    LocationData `json:"location,omitempty"`
-	SlowService bool         `json:"slow_service,omitempty"`
+	SlowService bool         `json:"slow_service"`
 }
 
 type Accuweather struct {

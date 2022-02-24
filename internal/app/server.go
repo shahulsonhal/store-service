@@ -23,7 +23,7 @@ type Config struct {
 func newConfig() *Config {
 	c := new(Config)
 
-	c.Name = "location-history"
+	c.Name = "store-location"
 	c.Port = mustReadPort()
 	c.UseInMemory = mustReadInMemoryMode()
 	c.WeatherURL = mustReadWeatherBaseURL()
@@ -31,7 +31,7 @@ func newConfig() *Config {
 	return c
 }
 
-// Server is the top level location-history server application object.
+// Server is the top level store location server application object.
 type Server struct {
 	// TODO : db repo
 	*Config
