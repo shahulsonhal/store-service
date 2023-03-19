@@ -19,5 +19,5 @@
 ### PUT
 
 ```sh
-curl --location --request GTE 'http://localhost:8080/stores/?max=2&country=DE'
+curl --location --request GET 'http://localhost:8080/stores/?max=2&country=DE'
 ```
